@@ -1,4 +1,3 @@
-import { Pane } from 'tweakpane'
 import { PerspectiveCamera, WebGLRenderer } from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 interface param {

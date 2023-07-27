@@ -11,10 +11,8 @@ import {
 	addPetals,
 } from './addMeshes'
 import { animateLeaves } from './animateLeaves'
-import { PARAMS, orbit } from './controls'
 import { resize } from './eventListeners'
 import './style.css'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 // let renderer, scene
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
@@ -33,8 +31,6 @@ const switchInterval = 2000 // Interv
 let previousMousePosition = { x: 0, y: 0 }
 let rotationVelocity = { x: 0, y: 0 }
 let rotationFriction = 0.9
-let controls: OrbitControls
-let show: number = 0
 
 init()
 dragging()

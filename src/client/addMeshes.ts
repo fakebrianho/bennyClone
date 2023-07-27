@@ -72,7 +72,6 @@ export async function addGoods(meshes: meshInter): Promise<void> {
 }
 export async function addPetals(meshes: meshInter): Promise<void> {
 	const petal = await loader.loadAsync('/src/assets/leaf/scene.gltf')
-	const group = new Group()
 	const iMesh = petal.scene.children[0].children[0].children[0].children[0]
 	const instanceCount = 100 // adjust as needed
 	// 	const meshObject = object as Mesh;
@@ -86,7 +85,6 @@ export async function addPetals(meshes: meshInter): Promise<void> {
 	const matrix = new Matrix4()
 	const position = new Vector3()
 	const eulerRotation = new Euler()
-	const rotation = new Vector3()
 	const quaternion = new Quaternion()
 	const scale = new Vector3()
 	for (let i = 0; i < instanceCount; i++) {
@@ -120,7 +118,6 @@ export const addMeshes = (): Mesh => {
 	t.wrapT = RepeatWrapping
 	t.repeat.set(1.25, 1.25)
 
-	const d: Texture = new TextureLoader().load(displacemen)
 	const geometry = new BoxGeometry(1.4, 1.4, 1.4, 100, 100, 100)
 	const material = new MeshStandardMaterial({
 		map: t,
