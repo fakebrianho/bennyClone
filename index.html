@@ -12,19 +12,25 @@
 <body>
   <!-- <div id="app"></div> -->
   <!-- <button class='Switcher'>hello</button> -->
-  <div class='container'>
-    <div class='navigation'>
-      <div class='btn active' id='1'>CD</div>
-      <div class='btn' id='2'>Cassette</div>
-      <div class='btn' id='3'>Download</div>
-      <div class='btn' id='4'>Sauce</div>
-      <div class='btn' id='5'>Music</div>
-      <div class='btn' id='6'>Me</div>
-    </div>
+  <div class='loader'>
+
+    <div class="lds-dual-ring"></div>
   </div>
-  <audio class='audio' controls>
-    <source src='/src/assets/count.mp3' type='audio/mpeg'>
-  </audio>
+  <section style="visibility: hidden;" class='main'>
+    <div class='container'>
+      <div class='navigation'>
+        <div class='btn active' id='1'>CD</div>
+        <div class='btn' id='2'>Cassette</div>
+        <div class='btn' id='3'>Download</div>
+        <div class='btn' id='4'>Sauce</div>
+        <div class='btn' id='5'>Music</div>
+        <div class='btn' id='6'>Me</div>
+      </div>
+    </div>
+    <audio class='audio' controls>
+      <source src='/src/assets/count.mp3' type='audio/mpeg'>
+    </audio>
+  </section>
 
   <script type="module" src="/src/client/main.ts"></script>
 </body>

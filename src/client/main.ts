@@ -17,6 +17,9 @@ import './style.css'
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
 const scene = new THREE.Scene()
 const audio: HTMLAudioElement | null = document.querySelector('.audio')
+const loader: HTMLDivElement | null = document.querySelector('.loader')
+const main: HTMLDivElement | null = document.querySelector('.main')
+// document.body.style.visibility = 'visible';
 const meshes: { [key: string]: any } = {}
 const lights: { [key: string]: any } = {}
 const clock = new THREE.Clock()
@@ -36,7 +39,6 @@ dragging()
 function init(): void {
 	renderer.setSize(sizes.width, sizes.height)
 	document.body.appendChild(renderer.domElement)
-
 	meshes.default = addMeshes()
 	meshes.download = download()
 	lights.default = addLight()
@@ -191,8 +193,11 @@ function dragging() {
 
 function animate(): void {
 	requestAnimationFrame(animate)
-	// controls.update()
 
+	if (meshes.petal && meshes.model && meshes.potion && meshes.default) {
+		main.style.visibility = 'visible'
+		loader.style.display = 'none'
+	}
 	if (meshes.petal) {
 		if (meshes.petal.visible) {
 			animateLeaves(0.01, meshes.petal)
