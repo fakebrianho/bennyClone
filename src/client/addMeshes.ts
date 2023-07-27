@@ -24,7 +24,11 @@ import dl from '../assets/textures/tbb.jpeg'
 import displacemen from '../assets/textures/disp.png'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 const loader = new GLTFLoader()
-export async function addCassette(meshes: {}): Promise<void> {
+interface meshInter {
+	[key: string]: any
+}
+
+export async function addCassette(meshes: meshInter): Promise<void> {
 	const cassette = await loader.loadAsync(
 		'/src/assets/cassette_tape/scene.gltf'
 	)
@@ -37,7 +41,7 @@ export async function addCassette(meshes: {}): Promise<void> {
 	meshes.model = group
 }
 
-export async function addCD(meshes: {}): Promise<void> {
+export async function addCD(meshes: meshInter): Promise<void> {
 	const cd = await loader.loadAsync(
 		'/src/assets/CD/star_platinum_compact_disc.glb'
 	)
@@ -56,7 +60,7 @@ export function download(): Mesh {
 	mesh.visible = false
 	return mesh
 }
-export async function addGoods(meshes: {}): Promise<void> {
+export async function addGoods(meshes: meshInter): Promise<void> {
 	const potion = await loader.loadAsync('/src/assets/Goods/potion_bottle.glb')
 	const group = new Group()
 	potion.scene.scale.set(5, 5, 5)
@@ -66,14 +70,17 @@ export async function addGoods(meshes: {}): Promise<void> {
 	// potion.scene.visible = false
 	meshes.potion = group
 }
-export async function addPetals(meshes: {}): Promise<void> {
+export async function addPetals(meshes: meshInter): Promise<void> {
 	const petal = await loader.loadAsync('/src/assets/leaf/scene.gltf')
 	const group = new Group()
 	const iMesh = petal.scene.children[0].children[0].children[0].children[0]
 	const instanceCount = 100 // adjust as needed
+	// 	const meshObject = object as Mesh;
+	// console.log(meshObject.geometry);
+	const meshObject = iMesh as Mesh
 	const instancedMesh = new InstancedMesh(
-		iMesh.geometry,
-		iMesh.material,
+		meshObject.geometry,
+		meshObject.material,
 		instanceCount
 	)
 	const matrix = new Matrix4()

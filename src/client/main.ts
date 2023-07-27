@@ -19,7 +19,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 // let renderer, scene
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
 const scene = new THREE.Scene()
-const audio = document.querySelector('.audio')
+const audio: HTMLAudioElement | null = document.querySelector('.audio')
 const meshes: { [key: string]: any } = {}
 const lights: { [key: string]: any } = {}
 const clock = new THREE.Clock()
@@ -88,8 +88,10 @@ function animationHandler(active: Element): void {
 		meshes.potion.visible = false
 		meshes.default.visible = false
 		meshes.petal.visible = false
-		audio.style.display = 'none'
-		audio.pause()
+		if (audio !== null) {
+			audio.style.display = 'none'
+		}
+		audio?.pause()
 	} else if (active.id == '2') {
 		meshes.cd.visible = false
 		// console.log(meshes.model.children[0].v)
@@ -99,18 +101,22 @@ function animationHandler(active: Element): void {
 		meshes.potion.visible = false
 		meshes.default.visible = false
 		meshes.petal.visible = false
-		audio.pause()
-		audio.style.display = 'none'
+		audio?.pause()
+		if (audio !== null) {
+			audio.style.display = 'none'
+		}
 	} else if (active.id == '3') {
 		meshes.cd.visible = false
 		meshes.default.visible = false
 		meshes.model.visible = false
 		meshes.download.visible = true
-		audio.pause()
+		if (audio !== null) {
+			audio.style.display = 'none'
+		}
+		audio?.pause()
 		meshes.potion.visible = false
 		meshes.default.visible = false
 		meshes.petal.visible = false
-		audio.style.display = 'none'
 	} else if (active.id == '4') {
 		meshes.cd.visible = false
 		meshes.default.visible = false
@@ -119,8 +125,10 @@ function animationHandler(active: Element): void {
 		meshes.potion.visible = true
 		meshes.petal.visible = false
 		meshes.default.visible = false
-		audio.style.display = 'none'
-		audio.pause()
+		if (audio !== null) {
+			audio.style.display = 'none'
+		}
+		audio?.pause()
 	} else if (active.id == '5') {
 		meshes.petal.visible = true
 		meshes.cd.visible = false
@@ -129,11 +137,16 @@ function animationHandler(active: Element): void {
 		meshes.download.visible = false
 		meshes.potion.visible = false
 		meshes.default.visible = false
-		audio.style.display = 'block'
-		audio.play()
+		// audio.style.display = 'block'
+		if (audio !== null) {
+			audio.style.display = 'block'
+		}
+		audio?.play()
 	} else {
-		audio.pause()
-		audio.style.display = 'none'
+		audio?.pause()
+		if (audio !== null) {
+			audio.style.display = 'none'
+		}
 		meshes.cd.visible = false
 		meshes.petal.visible = false
 		meshes.default.visible = false
