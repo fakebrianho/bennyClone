@@ -5,7 +5,7 @@ body {
 	height: 100vh;
 	background-color: white;
 	color: lightgray;
-	overflow: hidden;
+	overflow: hiddengi;
 }
 
 canvas {
@@ -61,6 +61,18 @@ canvas {
 		left: 0%;
 		top: 80%;
 		/* transform: translate(-50%, -50%); */
+	}
+}
+
+@media (max-width: 500px) {
+	.navigation div {
+		outline: 1px solid black;
+		padding: 2.5px 8px;
+		width: fit-content;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 0.85rem;
+		font-weight: 600;
+		letter-spacing: 1px;
 	}
 }
 .loader {
