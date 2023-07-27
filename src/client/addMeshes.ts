@@ -33,7 +33,6 @@ export async function addCassette(meshes: meshInter): Promise<void> {
 	cassette.scene.scale.set(0.5, 0.5, 0.5)
 	cassette.scene.position.set(0, -0.5, 0)
 	group.add(cassette.scene)
-	// cassette.scene.visible = false
 	group.visible = false
 	meshes.model = group
 }
@@ -58,13 +57,12 @@ export function download(): Mesh {
 	return mesh
 }
 export async function addGoods(meshes: meshInter): Promise<void> {
-	const potion = await loader.loadAsync('/assets/Goods/potion_bottle.glb')
+	const potion = await loader.loadAsync('/assets/potion_flask.glb')
 	const group = new Group()
-	potion.scene.scale.set(5, 5, 5)
-	potion.scene.position.set(0, -0.4, 0)
+	potion.scene.scale.set(0.5, 0.5, 0.5)
+	potion.scene.position.set(0, -0.8, 0)
 	group.add(potion.scene)
 	group.visible = false
-	// potion.scene.visible = false
 	meshes.potion = group
 }
 export async function addPetals(meshes: meshInter): Promise<void> {
