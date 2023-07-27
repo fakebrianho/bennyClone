@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import { sizes, camera } from './camera'
 import addLight from './lights'
+import { fancyLight } from './lights'
 import {
 	addMeshes,
 	addCassette,
@@ -11,7 +12,9 @@ import {
 } from './addMeshes'
 import { animateLeaves } from './animateLeaves'
 import { resize } from './eventListeners'
+import { postprocessing } from './postProcessing'
 import './style.css'
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
 
 // let renderer, scene
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
@@ -19,7 +22,6 @@ const scene = new THREE.Scene()
 const audio: HTMLAudioElement | null = document.querySelector('.audio')
 const loader: HTMLDivElement | null = document.querySelector('.loader')
 const main: HTMLDivElement | null = document.querySelector('.main')
-// document.body.style.visibility = 'visible';
 const meshes: { [key: string]: any } = {}
 const lights: { [key: string]: any } = {}
 const clock = new THREE.Clock()
@@ -33,6 +35,7 @@ const switchInterval = 2000 // Interv
 let previousMousePosition = { x: 0, y: 0 }
 let rotationVelocity = { x: 0, y: 0 }
 let rotationFriction = 0.9
+let composer: EffectComposer
 
 init()
 dragging()
@@ -42,6 +45,9 @@ function init(): void {
 	meshes.default = addMeshes()
 	meshes.download = download()
 	lights.default = addLight()
+	lights.dLight = fancyLight({ x: 3, y: 2, z: 1 })
+	scene.add(lights.dLight)
+	composer = postprocessing(renderer, scene, camera)
 	addCassette(meshes).then(() => {
 		scene.add(meshes.model)
 	})
@@ -268,6 +274,6 @@ function animate(): void {
 	meshes.default.material.displacementMap.offset.x += offsetX
 	meshes.default.material.displacementMap.offset.y += offsetY
 
-	renderer.render(scene, camera)
-	renderer.render(scene, camera)
+	// renderer.render(scene, camera)
+	composer.render()
 }
