@@ -3,7 +3,6 @@ import { sizes, camera } from './camera'
 import addLight from './lights'
 import {
 	addMeshes,
-	addShader,
 	addCassette,
 	addCD,
 	addGoods,

@@ -21,7 +21,6 @@ import vertexShader from '/@/shaders/vertex.glsl'
 import fragmentShader from '/@/shaders/fragment.glsl'
 import texture from '../assets/textures/me.png'
 import dl from '../assets/textures/tbb.jpeg'
-import displacemen from '../assets/textures/disp.png'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 const loader = new GLTFLoader()
 interface meshInter {

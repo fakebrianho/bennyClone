@@ -1,4 +1,4 @@
-import { AmbientLight, DirectionalLight } from 'three'
+import { AmbientLight } from 'three'
 
 const addLight = (): AmbientLight => {
 	// let light = new DirectionalLight(0xffffff, 1)

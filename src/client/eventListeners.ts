@@ -1,5 +1,4 @@
 import { PerspectiveCamera, WebGLRenderer } from 'three'
-let isDragging: boolean = false
 export const resize = (
 	camera: PerspectiveCamera,
 	renderer: WebGLRenderer,
