@@ -19,8 +19,8 @@ import {
 import { Matrix4, TextureLoader } from 'three'
 import vertexShader from '/@/shaders/vertex.glsl'
 import fragmentShader from '/@/shaders/fragment.glsl'
-import texture from '../assets/textures/me.png'
-import dl from '../assets/textures/tbb.jpeg'
+import texture from '/assets/textures/me.png'
+import dl from '/assets/textures/tbb.jpeg'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 const loader = new GLTFLoader()
 interface meshInter {
@@ -28,9 +28,7 @@ interface meshInter {
 }
 
 export async function addCassette(meshes: meshInter): Promise<void> {
-	const cassette = await loader.loadAsync(
-		'/src/assets/cassette_tape/scene.gltf'
-	)
+	const cassette = await loader.loadAsync('/assets/cassette_tape/scene.gltf')
 	const group = new Group()
 	cassette.scene.scale.set(0.5, 0.5, 0.5)
 	cassette.scene.position.set(0, -0.5, 0)
@@ -42,7 +40,7 @@ export async function addCassette(meshes: meshInter): Promise<void> {
 
 export async function addCD(meshes: meshInter): Promise<void> {
 	const cd = await loader.loadAsync(
-		'/src/assets/CD/star_platinum_compact_disc.glb'
+		'/assets/CD/star_platinum_compact_disc.glb'
 	)
 	cd.scene.scale.set(12, 12, 12)
 	cd.scene.position.set(0, 0, 0)
@@ -60,7 +58,7 @@ export function download(): Mesh {
 	return mesh
 }
 export async function addGoods(meshes: meshInter): Promise<void> {
-	const potion = await loader.loadAsync('/src/assets/Goods/potion_bottle.glb')
+	const potion = await loader.loadAsync('/assets/Goods/potion_bottle.glb')
 	const group = new Group()
 	potion.scene.scale.set(5, 5, 5)
 	potion.scene.position.set(0, -0.4, 0)
@@ -70,7 +68,7 @@ export async function addGoods(meshes: meshInter): Promise<void> {
 	meshes.potion = group
 }
 export async function addPetals(meshes: meshInter): Promise<void> {
-	const petal = await loader.loadAsync('/src/assets/leaf/scene.gltf')
+	const petal = await loader.loadAsync('/assets/leaf/scene.gltf')
 	const iMesh = petal.scene.children[0].children[0].children[0].children[0]
 	const instanceCount = 100 // adjust as needed
 	// 	const meshObject = object as Mesh;

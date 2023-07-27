@@ -1,0 +1,11 @@
+Model Information:
+* title:	Etheral Petal, singular
+* source:	https://sketchfab.com/3d-models/etheral-petal-singular-ad9580d3426349919a1185c411273c91
+* author:	DanSimmons1 (https://sketchfab.com/DanSimmons1)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Etheral Petal, singular" (https://sketchfab.com/3d-models/etheral-petal-singular-ad9580d3426349919a1185c411273c91) by DanSimmons1 (https://sketchfab.com/DanSimmons1) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
