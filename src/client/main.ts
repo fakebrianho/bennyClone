@@ -158,17 +158,41 @@ function dragging() {
 	renderer.domElement.addEventListener('mousemove', drag, false)
 	renderer.domElement.addEventListener('mouseup', stopDragging, false)
 
-	function startDragging(e: MouseEvent) {
+	renderer.domElement.addEventListener('touchstart', startDragging, false)
+	renderer.domElement.addEventListener('touchmove', drag, false)
+	renderer.domElement.addEventListener('touchend', stopDragging, false)
+
+	function startDragging(e: MouseEvent | TouchEvent) {
 		isDragging = true
-		previousMousePosition = { x: e.clientX, y: e.clientY }
+		// determine if it is a touch event
+		if (e instanceof TouchEvent) {
+			previousMousePosition = {
+				x: e.touches[0].clientX,
+				y: e.touches[0].clientY,
+			}
+		} else {
+			previousMousePosition = { x: e.clientX, y: e.clientY }
+		}
 	}
 
-	function drag(e: MouseEvent) {
+	function drag(e: MouseEvent | TouchEvent) {
 		if (!isDragging) return
 
+		let currentMousePosition
+
+		// determine if it is a touch event
+		if (e instanceof TouchEvent) {
+			currentMousePosition = {
+				x: e.touches[0].clientX,
+				y: e.touches[0].clientY,
+			}
+		} else {
+			currentMousePosition = { x: e.clientX, y: e.clientY }
+		}
+
 		const deltaMove = {
-			x: e.clientX - previousMousePosition.x,
-			y: e.clientY - previousMousePosition.y,
+			x: currentMousePosition.x - previousMousePosition.x,
+			y: currentMousePosition.y - previousMousePosition.y,
 		}
 
 		const rotationSpeed = 0.005 // Control the speed of rotation
@@ -183,7 +207,7 @@ function dragging() {
 		rotationVelocity.x = deltaMove.x * rotationSpeed
 		rotationVelocity.y = deltaMove.y * rotationSpeed
 
-		previousMousePosition = { x: e.clientX, y: e.clientY }
+		previousMousePosition = currentMousePosition
 	}
 
 	function stopDragging() {
