@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+  <link href='/src/client/style.css' type='stylesheet' />
+</head>
+
+<body>
+  <!-- <div id="app"></div> -->
+  <!-- <button class='Switcher'>hello</button> -->
+  <div class='container'>
+    <div class='navigation'>
+      <div class='btn active' id='1'>CD</div>
+      <div class='btn' id='2'>Cassette</div>
+      <div class='btn' id='3'>Download</div>
+      <div class='btn' id='4'>Sauce</div>
+      <div class='btn' id='5'>Music</div>
+      <div class='btn' id='6'>Me</div>
+    </div>
+  </div>
+  <audio class='audio' controls>
+    <source src='/src/assets/count.mp3' type='audio/mpeg'>
+  </audio>
+
+  <script type="module" src="/src/client/main.ts"></script>
+</body>
+
+</html>
