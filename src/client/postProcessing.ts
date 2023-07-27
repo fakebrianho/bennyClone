@@ -11,10 +11,10 @@ import {
 } from 'three'
 
 const params = {
-	threshold: 0,
-	strength: 0.3,
+	threshold: 0.0,
+	strength: 0.2,
 	radius: 1,
-	exposure: 0.65,
+	exposure: 0.85,
 }
 
 export const postprocessing = (

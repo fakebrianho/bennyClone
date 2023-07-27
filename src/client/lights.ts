@@ -2,7 +2,7 @@ import { AmbientLight, DirectionalLight } from 'three'
 
 const addLight = (): AmbientLight => {
 	// let light = new DirectionalLight(0xffffff, 1)
-	let light = new AmbientLight(0xffffff, 0.2)
+	let light = new AmbientLight(0xffffff, 0.8)
 	// light.position.set(1, 1, 1)
 	return light
 }

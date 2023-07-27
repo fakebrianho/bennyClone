@@ -64,11 +64,9 @@ function init(): void {
 	scene.add(lights.default)
 	scene.add(meshes.download)
 	resize(camera, renderer, sizes)
-	// controls = orbit(camera, renderer)
 	navigation()
 	animate()
 }
-
 function navigation() {
 	let btn = document.querySelectorAll('.btn')
 	let btnArray = Array.from(btn)
